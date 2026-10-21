@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>Irmãos Encanadores Mario &amp; Luigi</title>
+  <rect width="64" height="64" rx="14" fill="#0c1424"/>
+  <rect x="22" y="14" width="20" height="22" fill="#35d07f"/>
+  <rect x="26" y="14" width="4" height="22" fill="#7ff0b0"/>
+  <rect x="17" y="6" width="30" height="11" rx="3" fill="#35d07f" stroke="#1f9d5b" stroke-width="2"/>
+  <path d="M32 38 C32 38 21 50 21 55 a11 11 0 0 0 22 0 C43 50 32 38 32 38Z" fill="#4cc3ff"/>
+  <path d="M27 54 a5 5 0 0 0 4 5" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" opacity=".8"/>
+</svg>
