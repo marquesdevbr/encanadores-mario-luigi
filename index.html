@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Irmãos Encanadores Mario &amp; Luigi | Site de demonstração</title>
+    <meta
+      name="description"
+      content="Projeto de estudo: site de uma empresa fictícia de encanadores inspirada em Mario e Luigi. Feito com HTML, CSS e JavaScript puros."
+    />
+    <meta name="theme-color" content="#0c1424" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content="Irmãos Encanadores Mario & Luigi" />
+    <meta
+      property="og:description"
+      content="Site demonstrativo de uma empresa fictícia de encanadores. Projeto de estudo, sem vínculo oficial com a Nintendo."
+    />
+
+    <link rel="icon" href="favicon.ico" sizes="32x32" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Mukta:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="scripts.js" defer></script>
+  </head>
+
+  <body>
+    <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
+    <!-- Vídeo de fundo (decorativo) -->
+    <div class="caixa-video" aria-hidden="true">
+      <video
+        id="video-fundo"
+        src="assets/video.mp4"
+        poster="assets/fundo-poster.jpg"
+        autoplay
+        loop
+        muted
+        playsinline
+        preload="metadata"
+      ></video>
+      <div class="mascara-video"></div>
+    </div>
+
+    <header class="cabecalho">
+      <div class="cabecalho-conteudo">
+        <a
+          class="marca"
+          href="#inicio"
+          aria-label="Irmãos Encanadores Mario e Luigi, ir para o início"
+        >
+          <img src="assets/logo-header.png" alt="" width="268" height="300" />
+          <span class="marca-texto">Irmãos Encanadores</span>
+        </a>
+
+        <nav aria-label="Navegação principal">
+          <ul class="menu">
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#como-funciona">Como funciona</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="conteudo">
+      <!-- INÍCIO -->
+      <section class="hero secao" id="inicio" aria-labelledby="titulo-hero">
+        <div class="hero-texto">
+          <img
+            src="assets/logo.png"
+            alt="Logotipo The Super Mario Bros."
+            class="logo-mario"
+            width="700"
+            height="446"
+          />
+          <p class="selo">Site de demonstração · empresa fictícia</p>
+          <h1 id="titulo-hero">
+            Cano furado? Chame os irmãos do Reino dos Cogumelos.
+          </h1>
+          <p class="lead">
+            Vazamento no meio da madrugada, pia que não escoa, torneira que
+            pinga sem parar. Mario e Luigi resolvem o problema com chave
+            inglesa, desentupidor e muito bom humor.
+          </p>
+
+          <div class="acoes">
+            <button type="button" class="botao botao-principal" data-abrir-form>
+              Pedir orçamento
+            </button>
+            <a class="botao botao-secundario" href="#servicos">Ver serviços</a>
+          </div>
+        </div>
+
+        <div class="hero-imagem">
+          <img
+            src="assets/mario.png"
+            alt="Mario, de boné vermelho, e Luigi, de boné verde, de braços cruzados: Mario com uma chave inglesa e Luigi com um desentupidor"
+            class="logo-luigi-mario"
+            width="800"
+            height="922"
+          />
+        </div>
+      </section>
+
+      <!-- SERVIÇOS -->
+      <section
+        class="secao secao-servicos"
+        id="servicos"
+        aria-labelledby="titulo-servicos"
+      >
+        <header class="secao-titulo">
+          <p class="eyebrow">O que a dupla faz</p>
+          <h2 id="titulo-servicos">Serviços para todo tipo de cano</h2>
+          <p>
+            Do vazamento pequeno à instalação completa: veja o que a dupla
+            atenderia se esta empresa existisse de verdade.
+          </p>
+        </header>
+
+        <ul class="grade-servicos">
+          <li class="cartao cartao-azul">
+            <span class="cartao-icone" aria-hidden="true">💧</span>
+            <h3>Caça-vazamentos</h3>
+            <p>
+              Localizamos infiltrações em paredes, pisos e tubulações antes que
+              virem uma goteira (ou um rio) na sua sala.
+            </p>
+            <ul class="beneficios">
+              <li>Diagnóstico antes de quebrar</li>
+              <li>Reparo no ponto exato</li>
+            </ul>
+          </li>
+
+          <li class="cartao cartao-vermelho">
+            <span class="cartao-icone" aria-hidden="true">🧹</span>
+            <h3>Desentupimento</h3>
+            <p>
+              Pias, ralos, vasos e tubulações de esgoto livres de entupimentos,
+              com desentupidor de verdade e equipamento de apoio.
+            </p>
+            <ul class="beneficios">
+              <li>Cozinha, banheiro e área de serviço</li>
+              <li>Orientação para evitar repetição</li>
+            </ul>
+          </li>
+
+          <li class="cartao cartao-verde">
+            <span class="cartao-icone" aria-hidden="true">🚰</span>
+            <h3>Torneiras e registros</h3>
+            <p>
+              Troca de torneiras, vedantes, sifões e registros que pingam,
+              emperram ou deixam a água escapar.
+            </p>
+            <ul class="beneficios">
+              <li>Fim do pinga-pinga</li>
+              <li>Peças compatíveis com o seu modelo</li>
+            </ul>
+          </li>
+
+          <li class="cartao cartao-amarelo">
+            <span class="cartao-icone" aria-hidden="true">🚿</span>
+            <h3>Chuveiros e aquecedores</h3>
+            <p>
+              Instalação e manutenção de chuveiros, resistências e aquecedores,
+              com atenção redobrada à parte elétrica.
+            </p>
+            <ul class="beneficios">
+              <li>Pressão e temperatura ajustadas</li>
+              <li>Instalação segura</li>
+            </ul>
+          </li>
+
+          <li class="cartao cartao-azul">
+            <span class="cartao-icone" aria-hidden="true">🛁</span>
+            <h3>Louças e metais</h3>
+            <p>
+              Instalamos vasos sanitários, pias, cubas e acabamentos, com
+              vedação caprichada e alinhamento no lugar certo.
+            </p>
+            <ul class="beneficios">
+              <li>Vedação testada</li>
+              <li>Acabamento limpo</li>
+            </ul>
+          </li>
+
+          <li class="cartao cartao-vermelho">
+            <span class="cartao-icone" aria-hidden="true">🛢️</span>
+            <h3>Caixa-d'água e tubulações</h3>
+            <p>
+              Limpeza, reparo e substituição de boias, canos e conexões, para a
+              água chegar a todos os andares do castelo.
+            </p>
+            <ul class="beneficios">
+              <li>Boia e conexões revisadas</li>
+              <li>Troca de trechos danificados</li>
+            </ul>
+          </li>
+        </ul>
+
+        <div class="chamada">
+          <p>
+            Precisa de algo que não está na lista? Conte o problema e a dupla
+            responde.
+          </p>
+          <button type="button" class="botao botao-principal" data-abrir-form>
+            Pedir orçamento
+          </button>
+        </div>
+      </section>
+
+      <!-- COMO FUNCIONA -->
+      <section class="secao" id="como-funciona" aria-labelledby="titulo-como">
+        <header class="secao-titulo">
+          <p class="eyebrow">Sem enrolação</p>
+          <h2 id="titulo-como">Como funciona</h2>
+        </header>
+
+        <ol class="passos">
+          <li>
+            <h3>Conte o problema</h3>
+            <p>
+              Descreva o que está acontecendo pelo formulário ou pelo WhatsApp.
+            </p>
+          </li>
+          <li>
+            <h3>Receba o orçamento</h3>
+            <p>
+              A dupla responde com o que precisa ser feito, antes de pôr a mão
+              na massa.
+            </p>
+          </li>
+          <li>
+            <h3>Cano resolvido</h3>
+            <p>Serviço feito, área organizada e problema fora do caminho.</p>
+          </li>
+        </ol>
+      </section>
+
+      <!-- CONTATO -->
+      <section
+        class="secao secao-contato"
+        id="contato"
+        aria-labelledby="titulo-contato"
+      >
+        <div class="contato-caixa">
+          <img
+            src="assets/luigi.png"
+            alt="Luigi, de boné verde e macacão azul, tocando a aba do boné"
+            class="contato-luigi"
+            width="273"
+            height="605"
+            loading="lazy"
+          />
+          <div class="contato-texto">
+            <p class="eyebrow">Fale com a dupla</p>
+            <h2 id="titulo-contato">Pronto para resolver esse cano?</h2>
+            <p>
+              Mande o problema por escrito ou chame no WhatsApp. Este é um
+              projeto de demonstração: o número e o formulário são exemplos e
+              nenhum atendimento real é prestado.
+            </p>
+            <div class="acoes">
+              <button
+                type="button"
+                class="botao botao-principal"
+                data-abrir-form
+              >
+                Pedir orçamento
+              </button>
+              <a
+                class="botao botao-whatsapp"
+                href="https://wa.me/5511101100101?text=Quero%20um%20servi%C3%A7o!"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="assets/whatsapp.png" alt="" width="24" height="24" />
+                Chamar no WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="rodape">
+      <p>
+        <strong>Irmãos Encanadores Mario &amp; Luigi</strong> é uma empresa
+        <strong>fictícia</strong>. Projeto independente, educacional e de
+        demonstração, inspirado em personagens de terceiros.
+      </p>
+      <p>
+        Sem vínculo, afiliação ou endosso da Nintendo ou da Illumination.
+        Imagens e vídeo vieram do repositório do curso DevClub (Rodolfo Mori),
+        usados apenas para estudo.
+      </p>
+      <p>
+        <button
+          type="button"
+          class="botao-video"
+          id="botao-video"
+          aria-pressed="false"
+        >
+          Pausar vídeo de fundo
+        </button>
+      </p>
+    </footer>
+
+    <!-- Botão flutuante do WhatsApp -->
+    <a
+      class="link-whatsapp"
+      href="https://wa.me/5511101100101?text=Quero%20um%20servi%C3%A7o!"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Abrir conversa no WhatsApp (número de demonstração)"
+    >
+      <img src="assets/whatsapp.png" alt="" width="64" height="64" />
+    </a>
+
+    <!-- Formulário de orçamento -->
+    <dialog class="formulario" id="formulario" aria-labelledby="titulo-form">
+      <form
+        id="form-orcamento"
+        action="https://formcarry.com/s/a_1ypMTJjhF"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <div class="form-topo">
+          <h2 id="titulo-form">Pedir orçamento</h2>
+          <button
+            type="button"
+            class="form-fechar"
+            data-fechar-form
+            aria-label="Fechar formulário"
+          >
+            ×
+          </button>
+        </div>
+        <p class="form-aviso">
+          Formulário de demonstração: as mensagens vão para um serviço de teste.
+        </p>
+
+        <label for="campo-nome">Seu nome</label>
+        <input
+          id="campo-nome"
+          type="text"
+          name="nome"
+          autocomplete="name"
+          required
+        />
+
+        <label for="campo-email">Seu e-mail</label>
+        <input
+          id="campo-email"
+          type="email"
+          name="email"
+          autocomplete="email"
+          required
+        />
+
+        <label for="campo-problema">Qual é o problema?</label>
+        <textarea
+          id="campo-problema"
+          name="problema"
+          rows="4"
+          required
+        ></textarea>
+
+        <button type="submit" class="botao botao-principal" id="botao-enviar">
+          Enviar pedido
+        </button>
+        <p
+          class="form-status"
+          id="form-status"
+          role="status"
+          aria-live="polite"
+        ></p>
+      </form>
+    </dialog>
+  </body>
+</html>
