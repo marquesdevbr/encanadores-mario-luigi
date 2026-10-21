@@ -1,0 +1,779 @@
+/* =========================================================
+   Irmãos Encanadores Mario & Luigi — estilos
+   Projeto educacional. Organização:
+   1. Variáveis e base
+   2. Layout geral
+   3. Cabeçalho e menu
+   4. Hero
+   5. Botões
+   6. Serviços (cartões)
+   7. Como funciona
+   8. Contato e rodapé
+   9. Elementos flutuantes e vídeo
+   10. Formulário (dialog)
+   11. Ajustes finos e preferências do usuário
+   ========================================================= */
+
+/* ---------- 1. Variáveis e base ---------- */
+:root {
+  /* Paleta própria: noite de encanamento + acentos "cano, água, moeda, tomate" */
+  --fundo: #0c1424;
+  --superficie: #14203a;
+  --superficie-2: #1b2b4d;
+  --borda: #2c4170;
+  --texto: #f3f6fb;
+  --texto-suave: #bcc8dd;
+
+  --vermelho: #c9271b;
+  --vermelho-escuro: #8f1a11;
+  --verde-cano: #35d07f;
+  --azul-agua: #4cc3ff;
+  --amarelo-moeda: #ffcb3d;
+
+  --fonte-titulo: "Fredoka", "Trebuchet MS", system-ui, sans-serif;
+  --fonte-texto: "Mukta", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --raio: 1rem;
+  --raio-pequeno: 0.6rem;
+  --sombra-bloco: 0 4px 0 rgba(0, 0, 0, 0.45);
+  --largura-max: 80rem;
+  --margem-lateral: clamp(1rem, 4vw, 3rem);
+  --espaco-secao: clamp(3rem, 8vw, 6rem);
+  --altura-cabecalho: 4.25rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--altura-cabecalho) + 1rem);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: var(--fonte-texto);
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.15rem);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--fonte-titulo);
+  line-height: 1.15;
+  margin: 0;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--amarelo-moeda);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.pular-conteudo {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 100;
+  background: var(--amarelo-moeda);
+  color: #1a1400;
+  padding: 0.6rem 1rem;
+  border-radius: var(--raio-pequeno);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.pular-conteudo:focus {
+  top: 1rem;
+}
+
+/* ---------- 2. Layout geral ---------- */
+.secao {
+  width: min(100% - 2 * var(--margem-lateral), var(--largura-max));
+  margin-inline: auto;
+  padding-block: var(--espaco-secao);
+}
+
+.secao-titulo {
+  max-width: 42rem;
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+  display: grid;
+  gap: 0.6rem;
+}
+
+.secao-titulo h2,
+.contato-texto h2 {
+  font-size: clamp(1.7rem, 1.2rem + 2vw, 2.7rem);
+}
+
+.secao-titulo p:not(.eyebrow),
+.contato-texto > p:not(.eyebrow) {
+  color: var(--texto-suave);
+}
+
+.eyebrow {
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  color: var(--amarelo-moeda);
+}
+
+/* ---------- 3. Cabeçalho e menu ---------- */
+.cabecalho {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(12, 20, 36, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 2px solid var(--borda);
+}
+
+.cabecalho-conteudo {
+  width: min(100% - 2 * var(--margem-lateral), var(--largura-max));
+  margin-inline: auto;
+  min-height: var(--altura-cabecalho);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  padding-block: 0.4rem;
+}
+
+.marca {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.marca img {
+  width: 2.4rem;
+  height: auto;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 0.35rem;
+}
+
+.menu a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding-inline: 0.75rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--texto);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.menu a:hover {
+  background: var(--superficie-2);
+  color: var(--amarelo-moeda);
+}
+
+/* ---------- 4. Hero ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  align-items: center;
+  gap: clamp(1.5rem, 5vw, 4rem);
+  min-height: calc(100svh - var(--altura-cabecalho));
+  padding-block: clamp(2rem, 6vw, 4rem);
+}
+
+.hero-texto {
+  display: grid;
+  gap: 1.1rem;
+  justify-items: start;
+}
+
+.logo-mario {
+  width: clamp(9rem, 22vw, 15rem);
+  height: auto;
+}
+
+.selo {
+  display: inline-block;
+  padding: 0.25rem 0.8rem;
+  border: 2px dashed var(--azul-agua);
+  border-radius: 999px;
+  color: var(--azul-agua);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 1rem + 4.2vw, 3.9rem);
+}
+
+.lead {
+  color: var(--texto-suave);
+  font-size: clamp(1.05rem, 1rem + 0.35vw, 1.3rem);
+  max-width: 38rem;
+}
+
+.acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.hero-imagem {
+  display: flex;
+  justify-content: center;
+}
+
+.logo-luigi-mario {
+  width: min(100%, 30rem);
+  max-height: 70svh;
+  object-fit: contain;
+  filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.5));
+}
+
+/* ---------- 5. Botões ---------- */
+.botao,
+.formulario button[type="submit"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  padding: 0.6rem 1.5rem;
+  border: 2px solid transparent;
+  border-radius: var(--raio);
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  font-size: 1.05rem;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: var(--sombra-bloco);
+  transition: transform 0.15s, box-shadow 0.15s, background-color 0.2s;
+}
+
+.botao:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.45);
+}
+
+.botao:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.45);
+}
+
+.botao-principal,
+.formulario button[type="submit"] {
+  background: var(--vermelho);
+  color: #fff;
+  border-color: var(--vermelho-escuro);
+}
+
+.botao-principal:hover {
+  background: #d93a2d;
+}
+
+.botao-secundario {
+  background: transparent;
+  color: var(--texto);
+  border-color: var(--texto-suave);
+}
+
+.botao-secundario:hover {
+  background: var(--superficie-2);
+}
+
+.botao-whatsapp {
+  background: var(--verde-cano);
+  color: #06210f;
+  border-color: #1f9d5b;
+}
+
+.botao-whatsapp img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* ---------- 6. Serviços ---------- */
+.secao-servicos {
+  position: relative;
+}
+
+.grade-servicos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+.cartao {
+  --acento: var(--azul-agua);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  background: rgba(20, 32, 58, 0.92);
+  border: 2px solid var(--borda);
+  border-top: 6px solid var(--acento);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra-bloco);
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.cartao:hover {
+  transform: translateY(-4px);
+  border-color: var(--acento);
+}
+
+.cartao-azul {
+  --acento: var(--azul-agua);
+}
+.cartao-vermelho {
+  --acento: #ff6a5c;
+}
+.cartao-verde {
+  --acento: var(--verde-cano);
+}
+.cartao-amarelo {
+  --acento: var(--amarelo-moeda);
+}
+
+.cartao-icone {
+  display: grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  font-size: 1.7rem;
+  background: var(--superficie-2);
+  border: 2px solid var(--acento);
+  border-radius: 50%;
+}
+
+.cartao h3 {
+  font-size: 1.35rem;
+}
+
+.cartao > p {
+  color: var(--texto-suave);
+}
+
+.beneficios {
+  margin-top: auto;
+  padding-top: 0.5rem;
+  display: grid;
+  gap: 0.35rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.beneficios li {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+
+.beneficios li::before {
+  content: "✓";
+  color: var(--acento);
+  font-weight: 700;
+}
+
+.chamada {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  margin-top: clamp(1.5rem, 4vw, 2.5rem);
+  padding: clamp(1.25rem, 3vw, 2rem);
+  background: var(--superficie);
+  border: 2px dashed var(--amarelo-moeda);
+  border-radius: var(--raio);
+}
+
+.chamada p {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(1.1rem, 1rem + 0.6vw, 1.4rem);
+  max-width: 36rem;
+}
+
+/* ---------- 7. Como funciona ---------- */
+.passos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+  counter-reset: passo;
+}
+
+.passos li {
+  counter-increment: passo;
+  position: relative;
+  padding: 1.25rem 1.25rem 1.25rem 4.25rem;
+  background: var(--superficie);
+  border: 2px solid var(--borda);
+  border-radius: var(--raio);
+}
+
+.passos li::before {
+  content: counter(passo);
+  position: absolute;
+  left: 1rem;
+  top: 1.1rem;
+  display: grid;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  background: var(--amarelo-moeda);
+  color: #1a1400;
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.passos h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+
+.passos p {
+  color: var(--texto-suave);
+}
+
+/* ---------- 8. Contato e rodapé ---------- */
+.contato-caixa {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  padding: clamp(1.5rem, 4vw, 3rem);
+  background: linear-gradient(135deg, var(--superficie) 0%, var(--superficie-2) 100%);
+  border: 2px solid var(--borda);
+  border-radius: calc(var(--raio) * 1.5);
+}
+
+.contato-luigi {
+  width: auto;
+  height: clamp(12rem, 30vw, 20rem);
+  filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.45));
+}
+
+.contato-texto {
+  flex: 1 1 20rem;
+  display: grid;
+  gap: 0.9rem;
+  justify-items: start;
+}
+
+.rodape {
+  padding: 2rem var(--margem-lateral) 5.5rem;
+  background: rgba(7, 12, 22, 0.92);
+  border-top: 2px solid var(--borda);
+  text-align: center;
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.rodape p {
+  max-width: 52rem;
+  margin-inline: auto;
+}
+
+.rodape strong {
+  color: var(--texto);
+}
+
+/* ---------- 9. Elementos flutuantes e vídeo ---------- */
+.caixa-video {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: var(--fundo);
+}
+
+.caixa-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mascara-video {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    109deg,
+    rgba(10, 12, 16, 0.97) 15%,
+    rgba(10, 12, 16, 0.82) 50%,
+    rgba(10, 12, 16, 0.97) 85%
+  );
+}
+
+.link-whatsapp {
+  position: fixed;
+  right: max(0.75rem, env(safe-area-inset-right));
+  bottom: max(0.75rem, env(safe-area-inset-bottom));
+  z-index: 15;
+  display: grid;
+  place-items: center;
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s;
+}
+
+.link-whatsapp:hover {
+  transform: scale(1.08);
+}
+
+.link-whatsapp img {
+  width: 2.9rem;
+  height: 2.9rem;
+}
+
+.botao-video {
+  min-height: 2.75rem;
+  padding: 0.4rem 1.1rem;
+  background: var(--superficie);
+  color: var(--texto);
+  border: 2px solid var(--borda);
+  border-radius: 999px;
+  font: 600 0.9rem var(--fonte-texto);
+  cursor: pointer;
+}
+
+.botao-video:hover {
+  border-color: var(--amarelo-moeda);
+}
+
+/* ---------- 10. Formulário (dialog) ---------- */
+.formulario {
+  width: min(26rem, calc(100% - 2rem));
+  max-height: calc(100dvh - 2rem);
+  margin: auto;
+  padding: 0;
+  overflow: auto;
+  background: #fff;
+  color: #14203a;
+  border: 0;
+  border-radius: var(--raio);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.formulario[open] {
+  animation: entrar-form 0.3s ease-out;
+}
+
+.formulario::backdrop {
+  background: rgba(7, 12, 22, 0.8);
+}
+
+@keyframes entrar-form {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.formulario form {
+  display: grid;
+  gap: 0.35rem;
+  padding: clamp(1.1rem, 4vw, 1.75rem);
+}
+
+.form-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.form-topo h2 {
+  font-size: 1.6rem;
+}
+
+.form-fechar {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  background: transparent;
+  border: 2px solid #c3cde0;
+  border-radius: 50%;
+  color: #14203a;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.form-fechar:hover {
+  background: #eef2fa;
+}
+
+.form-aviso {
+  font-size: 0.9rem;
+  color: #46546f;
+  margin-bottom: 0.5rem;
+}
+
+.formulario label {
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+.formulario input,
+.formulario textarea {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 2px solid #8a98b3;
+  border-radius: var(--raio-pequeno);
+  font: inherit;
+  color: #14203a;
+  background: #fff;
+}
+
+.formulario textarea {
+  resize: vertical;
+  min-height: 6.5rem;
+}
+
+.formulario input:focus-visible,
+.formulario textarea:focus-visible {
+  outline: 3px solid #0a7d3f;
+  outline-offset: 1px;
+  border-color: #0a7d3f;
+}
+
+.formulario button[type="submit"] {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.formulario button[disabled] {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.form-status {
+  min-height: 1.4em;
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
+
+.form-status.sucesso {
+  color: #0a7d3f;
+}
+
+.form-status.erro {
+  color: #b3261e;
+}
+
+/* ---------- 11. Ajustes finos e preferências do usuário ---------- */
+@media (max-width: 34rem) {
+  .marca-texto {
+    display: none;
+  }
+
+  .cabecalho-conteudo {
+    justify-content: center;
+  }
+
+  .menu {
+    justify-content: center;
+  }
+
+  .menu a {
+    padding-inline: 0.55rem;
+    font-size: 0.95rem;
+  }
+
+  .hero-texto,
+  .contato-texto {
+    justify-items: stretch;
+  }
+
+  .acoes .botao {
+    width: 100%;
+  }
+}
+
+/* Telas muito baixas na horizontal: não força altura mínima no hero */
+@media (max-height: 32rem) and (orientation: landscape) {
+  .hero {
+    min-height: 0;
+  }
+
+  .logo-luigi-mario {
+    max-height: 80svh;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@media (forced-colors: active) {
+  .cartao,
+  .botao,
+  .passos li {
+    border-color: CanvasText;
+  }
+}
